@@ -25,6 +25,7 @@ function main() {
         };
         const writeStream = await pinoDataDog.createWriteStream(config);
         process.stdin.pipe(writeStream);
+        process.stdin.pipe(process.stdout);
         console.info('logging');
       } catch (error) {
         console.log(error.message);
